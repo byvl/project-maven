@@ -13,6 +13,14 @@
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>local</id>
+            <name>local lib</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -57,11 +65,11 @@
                 </configuration>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-install-plugin</artifactId>-->
-<!--                <version>2.4</version>-->
-<!--            </plugin>-->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -74,7 +82,7 @@
                             <groupId>com.javarush</groupId>
                             <artifactId>desktop-game-engine</artifactId>
                             <version>1.0</version>
-                            <file>${project.basedir}/lib/desktop-game-engine.jar</file>
+                            <file>lib/com/javarush/desktop-game-engine/1.0/desktop-game-engine-1.0.jar</file>
                             <packaging>jar</packaging>
                         </configuration>
                         <goals>
@@ -90,7 +98,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    
+
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
@@ -103,6 +111,22 @@
                        </manifestEntries>
                     </archive>
                 </configuration>
+
+                <!--    !!! -->
+                <!--<executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>jar-with-dependencies</classifier>
+                        </configuration>
+                    </execution>
+                </executions>-->
+                <!--    !!! -->
+
             </plugin>
 
             <plugin>
